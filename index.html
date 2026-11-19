@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-aMMHwHF36+8C2o5+LtBdl7rnWHmGb7m42W8tXTpJteU='; script-src-attr 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Shutter Stories | Photography for Gaming, Dogs, Family and Real Life</title>
 <meta name="description" content="Cinematic photography for gaming, dogs, families and real life. Book a shoot with Shutter Stories. Prices in GBP.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 @property --bi{syntax:'<color>';inherits:true;initial-value:#5a3320}
 @property --bm{syntax:'<color>';inherits:true;initial-value:#2b2d32}
@@ -94,16 +94,21 @@ footer{position:relative;z-index:1;padding:3rem 4% 4rem;border-top:1px solid var
 .hcen{position:relative;inset:auto;width:100%;padding:3rem 0;pointer-events:none}.ph{width:88vw}.big{font-size:clamp(3rem,15vw,5.5rem)}.badge{margin:0}
 .two{grid-template-columns:1fr}.ab{max-width:420px}.vals{grid-template-columns:1fr}form{grid-template-columns:1fr}.gal{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.hcen{opacity:1}}
+.skip{position:fixed;top:-6rem;left:1rem;z-index:9999;background:#fff;color:#151515;padding:.8rem}.skip:focus{top:1rem}
+:focus-visible{outline:3px solid #ffbe83;outline-offset:4px}section[id]{scroll-margin-top:6rem}
+.st{letter-spacing:-.035em;text-wrap:balance}.sec .sub{max-width:62ch;line-height:1.65}.pk{display:flex;flex-direction:column}.pk button{margin-top:auto}.pk ul{padding-bottom:1rem}.shot{border-radius:12px;overflow:hidden}.shot:focus-visible{outline-offset:2px}input,select,textarea{font-size:1rem}form label{line-height:1.5}#fm{grid-column:1/-1}
+@media(max-width:900px){.header{flex-wrap:wrap}.header .nav{display:flex;order:3;width:100%;overflow-x:auto;justify-content:flex-start;border-radius:8px;background:#16171a}.nav a{flex:none;min-height:40px;display:grid;place-items:center}.hero{padding-top:9rem}section[id]{scroll-margin-top:9rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}
 </style>
 </head>
-<body>
+<body><a class="skip" href="#main">Skip to content</a>
 <div id="bokeh"></div>
 <header class="header">
 <a class="logo" href="#home"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 2l4 7M22 12h-8M17 20l-4-7M7 20l4-7M2 12h8M7 4l4 7"/></svg>Shutter<i>Stories</i></a>
-<nav class="nav"><a href="#home" class="active">Home</a><a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<nav class="nav" aria-label="Main navigation"><a href="#home" class="active">Home</a><a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
 <a class="cbtn" href="#contact">Book a shoot</a>
 </header>
-<main>
+<main id="main">
 <section class="hero" id="home"><div class="hc">
 <div class="hl">
 <h1 class="big"><span class="ol">Capture</span><br>the moment</h1>
@@ -172,19 +177,19 @@ footer{position:relative;z-index:1;padding:3rem 4% 4rem;border-top:1px solid var
 
 <section class="sec" id="contact"><div class="wrap">
 <h2 class="st">Let’s capture your story</h2>
-<p class="sub">Tell me what you have in mind and I’ll reply within 24 hours.</p>
-<form class="glass" id="f">
-<label>Your name<input name="n" required autocomplete="name"></label>
-<label>Email<input name="e" type="email" required autocomplete="email"></label>
-<label>Type of shoot<select><option>Gaming</option><option>Real life</option><option>Dogs and pets</option><option>Family</option><option>Events</option></select></label>
-<label>Package<select id="pkg"><option>Mini (£75)</option><option>Standard (£150)</option><option>Full (£295)</option><option>Not sure yet</option></select></label>
-<label class="f">Message<textarea name="m"></textarea></label>
-<button class="btn" type="submit">Send enquiry</button><p id="fm" role="status"></p>
+<p class="sub">Choose your shoot and download an enquiry to share with the photographer. Your details stay on this device until you send the file yourself.</p>
+<form class="glass" id="f" method="post">
+<label>Your name<input name="n" maxlength="100" required autocomplete="name"></label>
+<label>Email<input name="e" maxlength="254" type="email" required autocomplete="email"></label>
+<label>Type of shoot<select name="shoot"><option>Gaming</option><option>Real life</option><option>Dogs and pets</option><option>Family</option><option>Events</option></select></label>
+<label>Package<select id="pkg" name="package"><option>Mini (£75)</option><option>Standard (£150)</option><option>Full (£295)</option><option>Not sure yet</option></select></label>
+<label class="f">Message<textarea name="m" maxlength="2000"></textarea></label>
+<button class="btn" type="submit">Download enquiry</button><p id="fm" role="status"></p>
 </form></div></section>
 </main>
 <footer><div><a class="logo" href="#home">Shutter<i>Stories</i></a><p>Photography for gaming, dogs, family and real life.</p></div><p>All prices in GBP (£).</p><p>© 2026 Shutter Stories. All rights reserved.</p></footer>
 
-<dialog class="lb" id="lb"><div id="lbi"></div><p class="cap" id="lbc" style="position:static"></p><form method="dialog"><button class="btn b">Close</button></form></dialog>
+<dialog aria-labelledby="lbc" class="lb" id="lb"><div id="lbi"></div><p class="cap" id="lbc" style="position:static"></p><form method="dialog"><button class="btn b">Close</button></form></dialog>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -195,7 +200,8 @@ $('.pf').innerHTML=P.filter(p=>p[5]).map(el).join('');$('.pb').innerHTML=P.filte
 /* cursor tilt, parallax, repulsion */
 let m={x:0,y:0,px:-999,py:-999},c={x:0,y:0};const parts=$$('.part'),st=parts.map(()=>({x:0,y:0}));
 addEventListener('mousemove',e=>{m.x=e.clientX/innerWidth-.5;m.y=e.clientY/innerHeight-.5;m.px=e.clientX;m.py=e.clientY});
-(function tick(){
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+(function tick(){if(reduceMotion.matches || document.hidden || scrollY>innerHeight){setTimeout(tick,500);return;}
 c.x+=(m.x-c.x)*.05;c.y+=(m.y-c.y)*.05;
 if(scrollY<innerHeight){
 $('#tilt').style.transform=`rotateY(${c.x*18}deg) rotateX(${-c.y*12}deg)`;
@@ -203,13 +209,13 @@ $('.pf').style.transform=`translate(${c.x*60}px,${c.y*60}px)`;$('.pb').style.tra
 parts.forEach((p,i)=>{const r=p.getBoundingClientRect(),dx=m.px-(r.left+r.width/2),dy=m.py-(r.top+r.height/2),d=Math.hypot(dx,dy)||1;let tx=0,ty=0;if(d<400){const f=(400-d)/400;tx=-dx/d*f*80;ty=-dy/d*f*80}const s=st[i];s.x+=(tx-s.x)*.1;s.y+=(ty-s.y)*.1;p.style.translate=`${s.x}px ${s.y}px`})}
 requestAnimationFrame(tick)})();
 /* bokeh */
-setInterval(()=>{if(document.hidden)return;const b=document.createElement('i'),s=Math.random()*34+10,d=Math.random()*6+5,k=Math.random()<.6?'224,96,15':'59,139,255';b.className='bok';b.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:radial-gradient(circle,rgba(${k},.55),rgba(${k},0) 70%);animation:up ${d}s linear forwards`;$('#bokeh').append(b);setTimeout(()=>b.remove(),d*1e3)},450);
+setInterval(()=>{if(document.hidden||reduceMotion.matches||scrollY>innerHeight)return;const b=document.createElement('i'),s=Math.random()*34+10,d=Math.random()*6+5,k=Math.random()<.6?'224,96,15':'59,139,255';b.className='bok';b.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:radial-gradient(circle,rgba(${k},.55),rgba(${k},0) 70%);animation:up ${d}s linear forwards`;$('#bokeh').append(b);setTimeout(()=>b.remove(),d*1e3)},450);
 /* hero photo switch: shutter flash, blur, gear implodes and returns */
 let busy=0;const EX={1:'f/2.8   1/500   ISO 100',2:'f/1.8   1/60   ISO 800'};
 $$('.fcard').forEach(k=>k.onclick=()=>{if(busy||k.classList.contains('active'))return;busy=1;$$('.fcard').forEach(x=>x.classList.toggle('active',x==k));
-$('#ph').animate([{filter:'blur(0)',scale:1},{filter:'blur(14px)',scale:1.05,offset:.4},{filter:'blur(0)',scale:1}],{duration:1000,easing:'ease-in-out'});
-$('#fl').animate([{opacity:0},{opacity:.85,offset:.38},{opacity:0}],{duration:1000});
-parts.forEach(p=>p.animate([{scale:p.dataset.s,opacity:1},{scale:.1,opacity:0,offset:.3},{scale:.1,opacity:0,offset:.5},{scale:p.dataset.s,opacity:1}],{duration:1000,easing:'ease-in-out'}));
+$('#ph').animate([{filter:'blur(0)',scale:1},{filter:'blur(14px)',scale:1.05,offset:.4},{filter:'blur(0)',scale:1}],{duration:reduceMotion.matches?0:1000,easing:'ease-in-out'});
+$('#fl').animate([{opacity:0},{opacity:.85,offset:.38},{opacity:0}],{duration:reduceMotion.matches?0:1000});
+parts.forEach(p=>p.animate([{scale:p.dataset.s,opacity:1},{scale:.1,opacity:0,offset:.3},{scale:.1,opacity:0,offset:.5},{scale:p.dataset.s,opacity:1}],{duration:reduceMotion.matches?0:1000,easing:'ease-in-out'}));
 setTimeout(()=>{$('#ph').style.setProperty('--p',`var(--i${k.dataset.n})`);$('#hud').textContent=EX[k.dataset.n];document.body.classList.toggle('blu',k.dataset.t=='b')},380);setTimeout(()=>busy=0,1000)});
 $$('.arr').forEach(a=>a.onclick=()=>$$('.fcard').find(x=>!x.classList.contains('active')).click());
 /* pricing */
@@ -219,7 +225,18 @@ $('#pk').onclick=e=>{const b=e.target.closest('button');if(b){$('#pkg').selected
 /* lightbox */
 $$('.shot').forEach(s=>s.onclick=()=>{$('#lbi').style.cssText=`--bg:${s.style.getPropertyValue('--bg')};--ar:${s.style.getPropertyValue('--ar')}`;$('#lbc').textContent=s.dataset.c;$('#lb').showModal()});
 /* form (front-end only) */
-$('#f').onsubmit=e=>{e.preventDefault();$('#fm').textContent=`Thanks ${new FormData(e.target).get('n')}, your enquiry is in. I’ll reply within 24 hours.`;e.target.reset()};
+$('#f').addEventListener('submit', event => {
+  event.preventDefault();
+  const fields = new FormData(event.currentTarget);
+  const lines = ['Shutter Stories photography enquiry', '', ...[['Name','n'],['Reply email','e'],['Shoot','shoot'],['Package','package'],['Message','m']].map(([label,key]) => label + ': ' + fields.get(key).trim())];
+  const url = URL.createObjectURL(new Blob([lines.join(String.fromCharCode(10))], {type:'text/plain;charset=utf-8'}));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'shutter-stories-enquiry.txt';
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+  $('#fm').textContent = 'Your enquiry file is ready. Share it directly with the photographer to request your date.';
+});
 /* nav highlight */
 const secs=$$('main section[id]'),navs=$$('.nav a');
 addEventListener('scroll',()=>{let s=secs[0];secs.forEach(x=>{if(x.getBoundingClientRect().top<innerHeight/2)s=x});navs.forEach(a=>a.classList.toggle('active',a.hash=='#'+s.id))},{passive:true});
